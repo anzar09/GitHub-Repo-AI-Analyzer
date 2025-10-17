@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Repo AI Analyzer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --bg-color-start: #121212;
+        --bg-color-mid1: #1a1a2e;
+        --bg-color-mid2: #2a2a4e;
+        --bg-color-end: #1e1e3f;
+        --text-color-primary: #e0e0e0;
+        --text-color-secondary: #a0a0a0;
+        --card-bg-color: rgba(28, 28, 45, 0.5);
+        --card-border-color: rgba(255, 255, 255, 0.1);
+        --grid-line-color: rgba(255, 255, 255, 0.03);
+      }
+
+      html.light {
+        --bg-color-start: #f0f4f8;
+        --bg-color-mid1: #e6e9f0;
+        --bg-color-mid2: #d8dbe2;
+        --bg-color-end: #e1e4e8;
+        --text-color-primary: #1a202c;
+        --text-color-secondary: #4a5568;
+        --card-bg-color: rgba(255, 255, 255, 0.6);
+        --card-border-color: rgba(0, 0, 0, 0.1);
+        --grid-line-color: rgba(0, 0, 0, 0.05);
+      }
+
+      @keyframes gradient-animation {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      body {
+        background: linear-gradient(-45deg, var(--bg-color-start), var(--bg-color-mid1), var(--bg-color-mid2), var(--bg-color-end));
+        background-size: 400% 400%;
+        animation: gradient-animation 15s ease infinite;
+        color: var(--text-color-primary);
+        transition: background-color 0.5s ease, color 0.5s ease;
+      }
+      
+      .glass-card {
+        background: var(--card-bg-color);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid var(--card-border-color);
+        transition: transform 0.2s ease, box-shadow 0.3s ease;
+        transform-style: preserve-3d;
+      }
+      
+      .interactive-card:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .glowing-text {
+        text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+      }
+      html.light .glowing-text {
+         text-shadow: none;
+      }
+      
+      .glowing-input:focus-within {
+        box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+      }
+
+      .btn-3d {
+        transition: all 0.15s ease-out;
+        box-shadow: 0 4px 0 0 #1e40af;
+      }
+      .btn-3d:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 0 0 #1e40af;
+      }
+      .btn-3d:active {
+        transform: translateY(2px);
+        box-shadow: 0 2px 0 0 #1e40af;
+      }
+      
+      @keyframes fade-in-stagger {
+        from { opacity: 0; transform: translateY(20px) scale(0.98); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+      }
+
+      .animate-fade-in-stagger {
+        animation: fade-in-stagger 0.6s ease-out forwards;
+        opacity: 0;
+      }
+
+    </style>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'gray-900': '#121212',
+              'gray-800': '#1E1E1E',
+              'gray-700': '#2D2D2D',
+              'gray-600': '#3C3C3C',
+              'gray-400': '#A0A0A0',
+              'blue-500': '#3b82f6',
+              'blue-600': '#2563eb',
+            }
+          }
+        }
+      }
+    </script>
+    <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.25.0",
+    "marked": "https://aistudiocdn.com/marked@^16.4.1",
+    "dompurify": "https://aistudiocdn.com/dompurify@^3.3.0"
+  }
+}
+</script>
+</head>
+  <body class="dark">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

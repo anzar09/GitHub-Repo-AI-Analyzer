@@ -1,0 +1,5 @@
+{
+  "name": "GitHub Repo AI Analyzer",
+  "description": "An AI-powered tool that analyzes GitHub repositories. Enter a repository URL to receive an in-depth analysis of its summary, technology stack, code quality, and potential improvements.",
+  "requestFramePermissions": []
+}
